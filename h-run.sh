@@ -11,24 +11,45 @@ fi
 
 echo "$miner - $total_gpu_count";
 
+#Default values
+boost=32
+p_id=0
 
-source env.sh
-source wallet.sh
+giver=kf8gf1PQy4u2kURl-Gz4LbS29eaN4sVdrVQkPO-JL80VhOe6
+wallet=EQCB318fHOfklcM-5qFuod-ltJnlM5ycjywk6BwOBG6a60hg
 
 
-echo "-------------======================----------------" >> exits
+#override:
+	# boost
+	# p_id
+	# total_gpu_count
+	# etc
+source /home/user/ton/env.sh
+
+FILE=/etc/resolv.conf
+if test -f "giver"; then
+    giver=$(cat giver)
+else 
+	echo "Use default giver"
+fi
+
+echo "Wallet: $wallet"
+echo "Giver: $giver"
+echo "Boost: $boost"
+echo "Platform id $p_id"
+
+echo "======================----------------" >> exits
 sleep 40;
 counter=0
 while [ $counter -lt $total_gpu_count ]
 do
-#	miners/$sys_version/$gpu/tonlib-$miner-cli -v 3 -C global.config.json -e "pminer start $giver $wallet $counter $boost $p_id" 
-	#echo "pminer start $giver $wallet $counter $boost $p_id"
+
 	while true; 
 		do 
-			echo "Start $counter" >> exits;
-			miners/$sys_version/$gpu/tonlib-$miner-cli -v 3 -C global.config.json -e "pminer start $giver $wallet $counter $boost $p_id" -l result; 
+			# echo "Start $counter" >> exits;
+			miners/$miner/tonlib-$miner-cli -v 3 -C global.config.json -e "pminer start $giver $wallet $counter $boost $p_id" -l result; 
 			echo "Died $counter" >> exits;
-			sleep 5;
+			sleep 7;
 		done &
 	# while true; do echo $counter; done &
 	((counter++))

@@ -53,7 +53,9 @@ do
 		done &
 	# while true; do echo $counter; done &
 	((counter++))
-	sleep 5;
+	sleep 7;
 done
+
+echo "Ready..."
 
 wait

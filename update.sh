@@ -20,3 +20,5 @@ tar -xf miners/minertools-opencl-ubuntu-18.04-x86-64.tar.gz -C miners/opencl
 
 
 
+rm miners/minertools-cuda-ubuntu-18.04-x86-64.tar.gz
+rm miners/minertools-opencl-ubuntu-18.04-x86-64.tar.gz

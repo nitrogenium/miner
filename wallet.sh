@@ -1,0 +1,2 @@
+giver=kf8gf1PQy4u2kURl-Gz4LbS29eaN4sVdrVQkPO-JL80VhOe6
+wallet=EQCB318fHOfklcM-5qFuod-ltJnlM5ycjywk6BwOBG6a60hg

@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+[[ -e $WALLET_CONF ]] && . $WALLET_CONF
 
 total_gpu_count=$(gpu-stats |jq ".brand" | grep 'nvidia\|amd'|wc -l)
 amd_gpu_count=$(gpu-stats |jq ".brand" | grep 'amd'|wc -l)
@@ -12,11 +14,11 @@ fi
 echo "$miner - $total_gpu_count";
 
 #Default values
-boost=32
+boost=128
 p_id=0
 
-giver=kf8gf1PQy4u2kURl-Gz4LbS29eaN4sVdrVQkPO-JL80VhOe6
-wallet=EQCB318fHOfklcM-5qFuod-ltJnlM5ycjywk6BwOBG6a60hg
+giver=$CUSTOM_URL
+wallet=$CUSTOM_TEMPLATE
 
 
 #override:
@@ -27,8 +29,8 @@ wallet=EQCB318fHOfklcM-5qFuod-ltJnlM5ycjywk6BwOBG6a60hg
 source /home/user/ton/env.sh
 
 FILE=/etc/resolv.conf
-if test -f "giver"; then
-    giver=$(cat giver)
+if test -f "/home/user/ton/giver"; then
+    giver=$(cat /home/user/ton/giver)
 else 
 	echo "Use default giver"
 fi

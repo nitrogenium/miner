@@ -1,1 +1,1 @@
-exit 0
+#!/usr/bin/env bash

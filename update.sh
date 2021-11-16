@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=20211115-1
+version=20211116-1
 
 mkdir -p miners/cuda
 mkdir -p miners/opencl

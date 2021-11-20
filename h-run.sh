@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p stats
+
 [[ -e $WALLET_CONF ]] && . $WALLET_CONF
 
 total_gpu_count=$(gpu-stats |jq ".brand" | grep 'nvidia\|amd'|wc -l)

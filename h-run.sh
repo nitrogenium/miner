@@ -49,7 +49,7 @@ do
 	while true; 
 		do 
 			# echo "Start $counter" >> exits;
-			miners/$miner/tonlib-$miner-cli -v 2 -C global.config.json -e "pminer start $giver $wallet $counter $boost $p_id" -s pminer_$counter; 
+			miners/$miner/tonlib-$miner-cli -v 2 -C global.config.json -e "pminer start $giver $wallet $counter $boost $p_id" -s stats/pminer_{$counter}.json; 
 			echo "Died $counter" >> exits;
 			sleep 7;
 		done &

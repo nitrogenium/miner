@@ -57,9 +57,13 @@ done
 
 
 stats=$(echo "{\"hs\": [$joined], \"hs_units\":\"mhs\" }")
-khs=$total_hr
+khs=$(echo "$total_hr * 1000"|bc)
 
-echo $stats
+
+[[ -z $khs ]] && khs=0
+[[ -z $stats ]] && stats="null"
+
+#echo $stats
 
 # { 
 # 	"hs": [123, 223.3], //array of hashes

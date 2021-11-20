@@ -56,7 +56,7 @@ for item in "${hr_array[@]}"; do
 done
 
 
-stats=$(echo "{\"hs\": [$joined], \"hs_units\":\"mhs\" }")
+stats=$(echo "{\"hs\": [$joined], \"hs_units\":\"mhs\", \"algo\": \"randomx\" }")
 khs=$(echo "$total_hr * 1000"|bc)
 
 

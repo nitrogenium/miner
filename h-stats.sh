@@ -6,7 +6,7 @@ function getHR(){
 
 # echo $
 
-	cat stats/pminer_$1.json|jq -r ".instant_speed"
+	cat ton/stats/pminer_$1.json|jq -r ".instant_speed"
 
 }
 
@@ -41,8 +41,8 @@ for item in "${hr_array[@]}"; do
 done
 
 
-echo "{\"hs\": [$joined], \"hs_units\":\"khs\" }"
-
+stats=$(echo "{\"hs\": [$joined], \"hs_units\":\"khs\" }")
+khs=$total_hr
 
 
 # { 
